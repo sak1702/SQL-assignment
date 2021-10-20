@@ -1,0 +1,135 @@
+1.Write a query to list all the employees who are working as clerk
+--SELECT *
+  FROM empl
+  WHERE job = 'CLERK';
+2.Write a query to list the employees who are working as clerks or managers
+-- SELECT *
+   FROM empl
+   WHERE job IN ('CLERK','MANAGER');
+3.Write a query to get the current date
+-- SELECT GETDATE();
+4.Write a query to list the employees whose salaries are within the range of 500 and 1000
+-- SELECT *
+   FROM emp 
+   WHERE salary BETWEEN 500 and 1000;
+5.Write a query to list the employees who have joined in the month of December
+-- SELECT ename,hiredate 
+   FROM emp 
+   WHERE TO_CHAR(hiredate,’MON’)=’DEC’;
+6.Write a query to list the employees whose salaries are not within  the range of 1000 and 2500
+--SELECT *
+  FROM emp
+  WHERE NOT salary BETWEEN 1000 AND 3000;
+7.Write a query who are getting 800, 950, 3000,5000
+--SELECT ENAME,JOB,SAL
+  FROM EMP
+  WHERE SAL=800 OR SAL=5000 OR SAL=3000 OR SAL=950;
+8.To list all the employees whose names are having ‘L’ as second character 
+--SELECT first_name, last_name  
+  FROM emp
+  WHERE first_name LIKE '_l%';
+9.To list all the employees whose names are having ‘D’ as last character 
+--SELECT *
+  FROM emp
+  WHERE emp_name LIKE '%d';
+10.To list all the employees whose names are having just 5 characters as length? 
+--SELECT * 
+  FROM emp 
+  WHERE ename LIKE '____%'
+11.To list all the employees whose names are starting with ‘T’ and ending with ‘R’ 
+--SELECT * 
+  FROM emp
+  WHERE ename like 'T%R'; 
+12.Display those employees who's name contains "A"?
+-- SELECT *
+   FROM emp
+   WHERE ename LIKE '%A%';
+13.Display those employee who joined the company before 19th of the month?
+--SELECT *
+  FROM emp
+  WHERE to_char(hire_date,'DATE') < '19';
+14.What is the employee number of 'James'
+--SELECT ENO
+  FROM emp
+  where ename='JAMES'; 
+15.What is the salary of 'king'?
+--SELECT sal
+  FROM emp
+  WHERE ename = 'KING';
+16.Who is the President for organization?
+--SELECT *
+  FROM emp
+  WHERE job_name='PRESIDENT';
+17.List all details of all the managers?
+--SELECT *
+  FROM emp
+  WHERE job_name='MANAGER';
+18.Give employee details for employees drawing commission?
+--SELECT *
+  FROM EMP
+  WHERE COMM IS NOT NULL;
+19.List employees who joined before april-1981?
+--SELECT *
+  FROM emp
+  WHERE hire_date<('1981-4-1');
+20.What is the salary of following: 
+21.King, Blake, Ford, Smith
+--SELECT Sal
+  FROM emp
+  WHERE Ename='KING' OR Ename='BLAKE' OR Ename='FORD'OR Ename='SMITH';
+22.Who is drawing salary less than 3500
+--SELECT *
+  FROM employees
+  WHERE salary <3500;
+23.List the details of all the clerks
+--SELECT *
+  FROM employees
+  WHERE job_name ='CLERK';
+24.what is the annual salary for each the employees
+--SELECT emp_id,emp_name,12*salary Annual_Salary
+  FROM employees
+25.if there is a hike in monthly salary by 20% for ford, what will be his annual Salary
+-- SELECT salary + (salary * 20/100) as NewSalary,
+   NewSalary*12 As annual_Sal
+   FROM emp
+   WHERE ename='ford';
+26.What is the total salary for each department
+-- SELECT SUM(salary)
+   FROM employees 
+   GROUP BY department_id;
+27.Who is drawing the lowest salary in dept 10
+-- SELECT MIN(salary)
+   FROM   employee
+   WHERE deptno=10;
+28.What is the average salary for Managers
+--SELECT avg(SALARY) as AVGSalary
+  FROM emp
+  WHERE job_name ='Manager';
+29.What is the total salary for salesman
+--SELECT SUM (salary)
+  FROM employees
+  WHERE job_name = 'SALESMAN';
+30.Which department is having the lowest average salary?
+--SELECT Dep_name
+  FROM emp
+  GROUP BY Dep_name
+  ORDER BY AVG(salary) desc
+  LIMIT 1;
+31.How many persons are in each role
+--SELECT department_id,COUNT(*)
+  FROM emp
+  GROUP BY department_id;
+32.What is the highest salary among analyst
+--SELECT max(salary)
+  FROM emp
+  WHERE job_name = 'ANALYST';
+33.What is the highest commission paid
+--SELECT max(comm)
+  FROM emp;
+34.How many departments are there
+--SELECT COUNT(department)
+  FROM emp;
+35.List the names in which 3rd  character is L
+--SELECT ename
+  FROM emp
+  WHERE ename LIKE '__l%';
