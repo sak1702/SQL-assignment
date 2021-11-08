@@ -1,39 +1,27 @@
-package com.sonataAssignment3;
+package com.sonata.practical;
 
-public class TechnicalEmp extends Employee {
-	
-	
-	String skills;
+public class TechnicalEmp extends Employee{
+String skills;
 	
 	@Override
-	 double salcal() {
-		
-		double hra=0.12*B_pay;
-		return B_pay+hra;
-		
+	 double salcal() throws MyException{
+		double hra=0.12*BasePay;
+		if (BasePay+hra < 5000)
+			throw new MyException("The Total Salary Should be greater than 5000");
+		else return BasePay+hra;
 	}
 	
+	TechnicalEmp(){};
+	public TechnicalEmp(int eId, String eName, Address obj, double basePay, String skills) {
+		super(eId, eName, obj, basePay);
+		this.skills = skills;
+	}
+
 	@Override
 	public String toString() {
-		return "TechEmp [eid=" + e_id + ", ename=" + e_name +"]";
+		return "TechnicalEmp [skills=" + skills + ", eId=" + eId + ", eName=" + eName + ", obj=" + obj + ", BasePay="
+				+ BasePay + "]";
 	}
 	
-	public static void main (String args[]) {
-		Address a=new Address();
-		a.setCity("banglore");
-		a.setDoorno(10);
-		a.setPin(562114);
-		a.setStreet("st2");
-		
-		TechnicalEmp t= new TechnicalEmp();
-		t.B_pay=1001;
-		t.e_id=2;
-		t.e_name="kiran";
-		t.obj=a;
-		System.out.println("eid : "+t.e_id);
-		System.out.println("ename : "+t.e_name);
-		System.out.println("Adress : "+t.obj);
-		System.out.println("salary for tech emp:"+t.salcal());
-	}
 
 }

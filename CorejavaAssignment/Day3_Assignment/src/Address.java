@@ -1,38 +1,46 @@
-package com.sonataAssignment3;
+package com.sonata.practical;
 
 public class Address {
-
-	private String city;
-	private  int doorno;
-	private int pin;
-	private String street;
+	private String City;
+	private  int DoorNo;
+	private int PinNo;
+	private String Street;
+	
+	Address(){};
+	public Address(String city, int doorNo, int pinNo, String street) {
+		super();
+		City = city;
+		DoorNo = doorNo;
+		PinNo = pinNo;
+		Street = street;
+	}
 	public String getCity() {
-		return city;
+		return City;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setCity(String City) {
+		this.City = City;
 	}
-	public int getDoorno() {
-		return doorno;
+	public int getDoorNo() {
+		return DoorNo;
 	}
-	public void setDoorno(int doorno) {
-		this.doorno = doorno;
+	public void setDoorNo(int DoorNo) {
+		this.DoorNo = DoorNo;
 	}
-	public int getPin() {
-		return pin;
+	public int getPinNo() {
+		return PinNo;
 	}
-	public void setPin(int pin) {
-		this.pin = pin;
+	public void setPinNo(int PinNo) {
+		this.PinNo = PinNo;
 	}
 	public String getStreet() {
-		return street;
+		return Street;
 	}
-	public void setStreet(String street) {
-		this.street = street;
+	public void setStreet(String Street) {
+		this.Street = Street;
 	}
 	@Override
 	public String toString() {
-		return "Address [city=" + city + ", doorno=" + doorno + ", pin=" + pin + ", street=" + street + "]";
+		return "Address [City=" + City + ", DoorNo=" + DoorNo + ", PinNo=" + PinNo + ", Street=" + Street + "]";
 	}
-	
+
 }
